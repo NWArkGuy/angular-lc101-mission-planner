@@ -1,4 +1,14 @@
 <h3>Crew</h3>
 <ul>
-  <li *ngFor='let member of crew'>{{ member.name }}</li>
+  <li *ngFor='let crewmember of crew'>{{ crewmember.name }}
+  <span *ngIf="crewmember.firstMission">- 1st</span>
+  <button (click)="remove(crewmember)">Remove</button>
+  </li>
+
+  <input #name type="text"/>
+  <label>
+      First mission
+      <input #firstMission type="checkbox"/>
+  </label>
+  <button (click)="add(name.value, firstMission.checked)">Add</button>
 </ul>
